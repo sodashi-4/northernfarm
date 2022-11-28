@@ -1,5 +1,7 @@
 *.sqlite
 .DS_Store
+skip_list.pickle
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -154,3 +156,5 @@ build-iPhoneSimulator/
 
 # Used by RuboCop. Remote config files pulled in from inherit_from directive.
 # .rubocop-https?--*
+
+chromedriver
