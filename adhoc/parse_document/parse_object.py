@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 
-from custom_sleep import short_sleep, medium_sleep
+from custom_sleep import short_sleep, medium_sleep, long_sleep
 
 import os
 import re
@@ -78,8 +78,10 @@ def parse_object(driver, title, logger,start_page=1 ):
       short_sleep()
     except Exception as e:
       # for the page which take long time to load
-      medium_sleep()
+      long_sleep()
       try:
+        driver.find_element(By.XPATH, XPATH_CURSOR_CONTENT).click()
+        sleep(1.5)
         next_page.click()
         short_sleep()
       except Exception as e:

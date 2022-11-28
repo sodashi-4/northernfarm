@@ -44,6 +44,8 @@ def main():
   # change if move file to another directory
   f = open("./skip_list.pickle", "rb")
   skip_list = pickle.load(f)
+  skip_list.extend(os.listdir(f"{os.getcwd()}/data"))
+  skip_list = list(set(skip_list))
 
   execution_dict = {}
   for obj in object_list:
@@ -62,6 +64,8 @@ def main():
       driver.find_element(By.XPATH, XPATH_UNSUPPORTED_MODAL_CLOSE_BUTTON).click()
       logger.info(f"{title} is unsupported")
       skip_list.append(title)
+      f = open("skip_list.pickle", "wb")
+      pickle.dump(skip_list, f)
       short_sleep()
       continue
     except:
@@ -70,6 +74,8 @@ def main():
       parse_object(driver, title, logger)
       logger.info(f"finish parsing {title}")
       skip_list.append(title)
+      f = open("skip_list.pickle", "wb")
+      pickle.dump(skip_list, f)
       driver.switch_to.window(index_window)
 
   driver.quit()

@@ -1,5 +1,7 @@
 *.sqlite
 .DS_Store
+skip_list.pickle
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

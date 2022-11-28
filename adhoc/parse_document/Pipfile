@@ -8,6 +8,8 @@ selenium = "*"
 jupyterlab = "*"
 ipykernel = "*"
 python-dotenv = "*"
+pillow = "*"
+img2pdf = "*"
 
 [dev-packages]
 
